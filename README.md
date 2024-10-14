@@ -1,4 +1,13 @@
-# Project Setup
+# RAG API with LLaMA 3.2
+
+This project deploys a private Retrieval-Augmented Generation (RAG) API using LLaMA 3.2 and vLLM.
+
+## Features
+
+✅ Serverless (scale to zero)
+✅ Private API
+✅ Your own infrastructure
+✅ Multi-GPU support
 
 ## Installation
 
@@ -8,24 +17,48 @@
    cd <your-repo-directory>
    ```
 
-2. Install the required packages:
+2. Install required packages:
    ```
    pip install -r requirements.txt
    ```
 
-3. Ensure the following local modules are present in your project directory:
+3. Ensure these modules are in your project directory:
    - ingestion.py
    - retriever.py
    - prompt_template.py
 
 ## LLaMA Model Setup
 
-This project uses the LLaMA model. To set it up:
+1. Download LLaMA model weights from [appropriate source].
+2. Place weights in [appropriate directory].
+3. Update `model_name` in `rag.py` if necessary.
 
-1. Download the LLaMA model weights from [insert appropriate source].
-2. Place the model weights in [insert appropriate directory].
-3. Update the `model_name` variable in `rag.py` if necessary.
+## Usage
 
-## Running the Application
+1. Add documents to chat with in the `./docs` folder.
 
-To run the application:
+2. Start the server:
+   ```
+   python server.py
+   ```
+
+3. Use the API:
+   ```
+   python client.py --query "Your question here"
+   ```
+
+## Deployment
+
+- Expose the server to the internet (authentication optional)
+- Enable "auto start" for serverless operation
+- Optimize performance with LitServe features (batching, multi-GPU, etc.)
+
+## Background
+
+This project utilizes:
+- RAG (Retrieval-Augmented Generation)
+- vLLM for efficient LLM serving
+- Vector database (self-hosted Qdrant)
+- LitServe for scalable inference
+
+For more details on these components, refer to the full documentation.
