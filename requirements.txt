@@ -1,0 +1,17 @@
+# Core dependencies
+litserve
+fastembed
+vllm
+
+# PDF processing
+PyPDF2
+
+# Common data processing and ML libraries
+numpy
+torch
+transformers
+
+# Local modules (ensure these files are in your project directory)
+# ingestion.py
+# retriever.py
+# prompt_template.py
